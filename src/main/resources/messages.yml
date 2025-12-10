@@ -1,0 +1,10 @@
+prefix: "<gray>[<gold>GalaxyWars<gray>] "
+
+errors:
+  not-player: "<red>Only players can use this."
+  
+abilities:
+  push:
+    used: "<green>You unleashed a shockwave!"
+    cooldown: "<red>You must gather your power for <time>s."
+    no-targets: "<gray>No targets in range."
