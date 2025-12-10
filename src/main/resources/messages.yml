@@ -5,6 +5,5 @@ errors:
   
 abilities:
   push:
-    used: "<green>You unleashed a shockwave!"
     cooldown: "<red>You must gather your power for <time>s."
     no-targets: "<gray>No targets in range."

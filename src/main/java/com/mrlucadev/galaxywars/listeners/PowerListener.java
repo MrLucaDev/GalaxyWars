@@ -72,7 +72,6 @@ public class PowerListener implements Listener {
         if (targetsHit > 0) {
             // Success
             setCooldown(player);
-            player.sendMessage(Lang.getMessage("abilities.push.used"));
             
             // Play Sound (Deep, heavy sound)
             player.getWorld().playSound(player.getLocation(), Sound.ENTITY_WARDEN_SONIC_BOOM, 1.0f, 1.5f);
