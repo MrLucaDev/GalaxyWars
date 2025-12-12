@@ -1,8 +1,0 @@
-# Abilities
-abilities:
-  power-push:
-    strength: 2.5        # How fast they fly away
-    vertical-lift: 0.8   # How high they go (important so they don't drag on ground)
-    range: 10.0          # How far the power reaches (blocks)
-    angle: 45.0          # The width of the "cone" in front of you
-    cooldown: 3          # Seconds between uses
