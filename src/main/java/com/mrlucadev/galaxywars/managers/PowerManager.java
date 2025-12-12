@@ -31,6 +31,7 @@ public class PowerManager {
         List<String> belt = UNLOCKED.getOrDefault(player.getUniqueId(), new ArrayList<>());
         
         if (belt.isEmpty()) {
+        	EnergyManager.pauseForText(2000);
             player.sendActionBar(Component.text("No powers unlocked.", NamedTextColor.GRAY));
             return;
         }
@@ -42,6 +43,8 @@ public class PowerManager {
         // Feedback
         String powerId = belt.get(currentSlot);
         PowerAbility ability = REGISTRY.get(powerId);
+        
+        EnergyManager.pauseForText(2000);
         player.sendActionBar(Component.text("Selected: ", NamedTextColor.GRAY)
                 .append(Component.text(ability.getDisplayName(), NamedTextColor.AQUA)));
     }
@@ -67,6 +70,7 @@ public class PowerManager {
 
             // Check if they have enough energy
             if (!EnergyManager.hasEnough(player, ability.getCost())) {
+            	EnergyManager.pauseForText(2000);
                 player.sendActionBar(Component.text("Not enough energy!", NamedTextColor.RED));
                 return;
             }

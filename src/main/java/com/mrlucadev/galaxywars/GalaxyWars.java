@@ -22,8 +22,8 @@ public class GalaxyWars extends JavaPlugin implements Listener {
 	@Override
 	public void onEnable() {
 		instance = this;
-		saveDefaultConfig();
-		Lang.load();
+		//saveDefaultConfig();
+		//Lang.load();
 		
         PowerManager.register(new PowerPush());
         PowerManager.register(new PowerJump());

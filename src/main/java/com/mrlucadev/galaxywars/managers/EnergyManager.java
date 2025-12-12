@@ -16,6 +16,7 @@ public class EnergyManager {
     private static final HashMap<UUID, Double> energyMap = new HashMap<>();
     private static final double MAX_ENERGY = 100.0;
     private static final double REGEN_PER_TICK = 0.05; // 1 energy per second
+    private static long uiLockout = 0;
     private static BukkitTask task;
 
     // Start the regeneration engine
@@ -26,6 +27,11 @@ public class EnergyManager {
 
     public static void stop() {
         if (task != null) task.cancel();
+    }
+    
+    // Pause energy system to let other systems use Action Bar
+    public static void pauseForText(int milliseconds) {
+        uiLockout = System.currentTimeMillis() + milliseconds;
     }
 
     // The logic loop
@@ -59,7 +65,12 @@ public class EnergyManager {
     }
 
     private static void renderBar(Player player, double current) {
-        // Visual: [||||||||||]
+    	// Check if Action Bar is currently used by other text (if so, don't render energy system)
+    	if (System.currentTimeMillis() < uiLockout) {
+            return;
+        }
+    
+    	// Visual: [||||||||||]
         int totalBars = 20;
         int filledBars = (int) ((current / MAX_ENERGY) * totalBars);
         
