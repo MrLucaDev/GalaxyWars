@@ -1,4 +1,0 @@
-prefix: "<gray>[<gold>GalaxyWars<gray>] "
-
-errors:
-  not-player: "<red>Only players can use this."
