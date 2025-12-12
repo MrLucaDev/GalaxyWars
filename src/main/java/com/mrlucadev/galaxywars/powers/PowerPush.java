@@ -19,7 +19,7 @@ public class PowerPush extends PowerAbility {
     public int getCooldown() { return 0; } // 0 Seconds
 
     @Override
-    public int getCost() { return 20; }
+    public int getCost() { return 15; }
 
     @Override
     public boolean cast(Player player) {
