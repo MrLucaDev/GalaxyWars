@@ -2,8 +2,6 @@ package com.mrlucadev.galaxywars;
 
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.jetbrains.annotations.NotNull;
-
 import com.mrlucadev.galaxywars.managers.PowerManager;
 import com.mrlucadev.galaxywars.utils.Lang;
 
@@ -20,13 +18,11 @@ public class GalaxyWars extends JavaPlugin implements Listener {
 		saveDefaultConfig();
 		Lang.load();
 		
-		// 1. Initialize Managers
         PowerManager.register(new com.mrlucadev.galaxywars.powers.PowerPush());
         PowerManager.register(new com.mrlucadev.galaxywars.powers.PowerJump());
 
         com.mrlucadev.galaxywars.managers.EnergyManager.init();
         
-        // 2. Register Listeners
         getServer().getPluginManager().registerEvents(new com.mrlucadev.galaxywars.listeners.InputListener(), this);
         getServer().getPluginManager().registerEvents(this, this);
         

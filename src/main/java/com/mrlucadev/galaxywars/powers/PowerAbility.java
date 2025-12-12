@@ -7,9 +7,8 @@ public abstract class PowerAbility {
 	public abstract String getId(); 			// Internal ID (e.g., "push")
 	public abstract String getDisplayName();	// Display Name (e.g., "Power Push")
 	public abstract int getCooldown();			// In seconds
-	public abstract int getCost();				// Energy cost (0 for now)
+	public abstract int getCost();				// Energy cost
 	
-	// Logic to run when cast
 	public abstract boolean cast(Player player);
 
 }

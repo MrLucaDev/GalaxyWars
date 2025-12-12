@@ -11,7 +11,8 @@ import java.util.HashMap;
 import java.util.UUID;
 
 public class EnergyManager {
-
+	
+	// Eventually make this customizable in config file
     private static final HashMap<UUID, Double> energyMap = new HashMap<>();
     private static final double MAX_ENERGY = 100.0;
     private static final double REGEN_PER_TICK = 0.05; // 1 energy per second
@@ -49,7 +50,7 @@ public class EnergyManager {
         return energyMap.getOrDefault(player.getUniqueId(), MAX_ENERGY) >= cost;
     }
 
-    // Forces the deduction (call this ONLY after success)
+    // Forces the deduction
     public static void take(Player player, double cost) {
         double current = energyMap.getOrDefault(player.getUniqueId(), MAX_ENERGY);
         double newAmount = Math.max(0, current - cost);

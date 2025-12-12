@@ -11,22 +11,22 @@ public class PowerManager {
 
     private static final Map<String, PowerAbility> REGISTRY = new HashMap<>();
     
-    // Player Data (In a real plugin, save this to database/file)
+    // Player Data (Eventually do this with database/file)
     private static final Map<UUID, List<String>> UNLOCKED = new HashMap<>();
     private static final Map<UUID, Integer> SELECTED_SLOT = new HashMap<>();
     private static final Map<UUID, Map<String, Long>> COOLDOWNS = new HashMap<>();
 
-    // 1. Register a new Power into the game
+    // Register a new Power into the game
     public static void register(PowerAbility ability) {
         REGISTRY.put(ability.getId(), ability);
     }
 
-    // 2. Unlock a power for a player (Add to their belt)
+    // Unlock a power for a player (Add to their belt)
     public static void unlockPower(Player player, String powerId) {
         UNLOCKED.computeIfAbsent(player.getUniqueId(), k -> new ArrayList<>()).add(powerId);
     }
 
-    // 3. Cycle to the next power (The 'F' Key Logic)
+    // Cycle to the next power
     public static void cyclePower(Player player) {
         List<String> belt = UNLOCKED.getOrDefault(player.getUniqueId(), new ArrayList<>());
         
@@ -46,7 +46,7 @@ public class PowerManager {
                 .append(Component.text(ability.getDisplayName(), NamedTextColor.AQUA)));
     }
 
-    // 4. Cast the currently selected power
+    // Cast the currently selected power
     public static void castCurrent(Player player) {
         List<String> belt = UNLOCKED.getOrDefault(player.getUniqueId(), new ArrayList<>());
         if (belt.isEmpty()) return;
@@ -62,20 +62,20 @@ public class PowerManager {
         PowerAbility ability = REGISTRY.get(powerId);
 
         if (ability != null) {
-            // 1. Check Cooldown
+            // Check Cooldown
             if (isOnCooldown(player, ability)) return;
 
-            // 2. CHECK if they have enough energy (Don't take it yet!)
+            // Check if they have enough energy
             if (!EnergyManager.hasEnough(player, ability.getCost())) {
                 player.sendActionBar(Component.text("Not enough energy!", NamedTextColor.RED));
                 return;
             }
 
-            // 3. ATTEMPT the cast
-            // If the ability returns TRUE (Success), then we pay the price.
+            // ATTEMPT the cast
+            // If the ability returns TRUE, then we pay the price.
             if (ability.cast(player)) {
                 
-                // 4. Success! Deduct Energy & Set Cooldown
+                // Deduct Energy & Set Cooldown
                 EnergyManager.take(player, ability.getCost());
                 setCooldown(player, ability);
             }
@@ -84,7 +84,7 @@ public class PowerManager {
         }
     }
 
-    // --- Cooldown Helpers ---
+    // Cooldown Helpers
     
     private static boolean isOnCooldown(Player player, PowerAbility ability) {
         Map<String, Long> playerCooldowns = COOLDOWNS.getOrDefault(player.getUniqueId(), new HashMap<>());
