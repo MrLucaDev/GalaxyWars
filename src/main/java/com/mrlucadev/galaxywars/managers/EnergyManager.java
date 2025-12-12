@@ -82,7 +82,7 @@ public class EnergyManager {
         // Color logic: Blue if good, Red if low
         NamedTextColor color = current > 20 ? NamedTextColor.AQUA : NamedTextColor.RED;
 
-        player.sendActionBar(Component.text("Force: ")
+        player.sendActionBar(Component.text("Power Energy: ")
                 .color(color)
                 .append(Component.text("[" + bar + "]", NamedTextColor.GRAY)));
     }
