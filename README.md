@@ -1,7 +1,7 @@
 # GalaxyWars 🌌
-**The Ultimate Kinetic Combat & Physics Engine for Minecraft (Paper 1.21)**
+**The Ultimate Kinetic Combat & Physics Engine for Minecraft (Paper 1.21.11)**
 
-![License](https://img.shields.io/badge/License-GPLv3-blue.svg) ![Platform](https://img.shields.io/badge/Platform-PaperMC%201.21-green.svg) ![Version](https://img.shields.io/badge/Version-1.0.0-orange.svg)
+![License](https://img.shields.io/badge/License-GPLv3-blue.svg) ![Platform](https://img.shields.io/badge/Platform-PaperMC%201.21.11-green.svg) ![Version](https://img.shields.io/badge/Version-1.0.0-orange.svg)
 
 **GalaxyWars** transforms Minecraft combat by introducing vector-based physics and telekinetic abilities. Move beyond simple sword swinging—launch enemies into the air, pull targets into striking range, and leap across the map with fluid, responsive controls.
 
@@ -48,7 +48,7 @@ Forget clumsy GUI menus in the middle of a fight. GalaxyWars uses a "Loadout" sy
 1.  **Download** the latest `.jar` from the [Releases](https://github.com/MrLucaDev/GalaxyWars/releases) tab.
 2.  **Drag and drop** it into your server's `plugins/` folder.
 3.  **Restart** your server.
-4.  *Note: You must be running a server based on Paper 1.21 or higher.*
+4.  *Note: You must be running a server based on Paper 1.21.11 or higher.*
 
 ---
 
