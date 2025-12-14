@@ -7,51 +7,68 @@ import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
 
+import com.mrlucadev.galaxywars.GalaxyWars;
+import com.mrlucadev.galaxywars.utils.Lang;
+
+import net.kyori.adventure.text.Component;
+
 public class PowerPull extends PowerAbility {
 
-    @Override
-    public String getId() { return "pull"; }
+	@Override
+	public String getId() {
+		return "pull";
+	}
 
-    @Override
-    public String getDisplayName() { return "Power Pull"; }
+	@Override
+	public Component getDisplayName() {
+		return Lang.getMessage("powers.abilities.pull");
+	}
 
-    @Override
-    public int getCooldown() { return 0; }
+	@Override
+	public int getCooldown() {
+		return GalaxyWars.getCfg().getInt("powers.pull.cooldown");
+	}
 
-    @Override
-    public int getCost() { return 15; }
+	@Override
+	public int getCost() {
+		return GalaxyWars.getCfg().getInt("powers.pull.energycost");
+	}
 
-    @Override
-    public boolean cast(Player player) {
-        boolean hitTarget = false;
-        Vector direction = player.getLocation().getDirection();
+	@Override
+	public boolean cast(Player player) {
+		boolean hitTarget = false;
+		Vector direction = player.getLocation().getDirection();
 
-        player.getWorld().playSound(player.getLocation(), Sound.ITEM_TRIDENT_RETURN, 1.0f, 0.8f);
+		player.getWorld().playSound(player.getLocation(), Sound.ITEM_TRIDENT_RETURN, 1.0f, 0.8f);
 
-        for (Entity entity : player.getNearbyEntities(15, 15, 15)) {
-            if (!(entity instanceof LivingEntity) || entity == player) continue;
+		for (Entity entity : player.getNearbyEntities(15, 15, 15)) {
+			if (!(entity instanceof LivingEntity) || entity == player)
+				continue;
 
-            // Cone check
-            Vector toEntity = entity.getLocation().toVector().subtract(player.getLocation().toVector());
-            if (toEntity.angle(direction) > Math.toRadians(45)) continue;
+			// Cone check
+			Vector toEntity = entity.getLocation().toVector().subtract(player.getLocation().toVector());
+			if (toEntity.angle(direction) > Math.toRadians(45))
+				continue;
 
-            // Don't pull if they are already in sword range (3 blocks)
-            double distance = player.getLocation().distance(entity.getLocation());
-            if (distance < 3.0) continue;
+			// Don't pull if they are already in sword range (3 blocks)
+			double distance = player.getLocation().distance(entity.getLocation());
+			if (distance < 3.0)
+				continue;
 
-            // Calculate vector from Entity -> Player
-            Vector pullVector = player.getLocation().toVector().subtract(entity.getLocation().toVector());
-            
-            // Normalize (make length 1) -> Multiply speed -> Add slight lift
-            // We use slightly less force than Push because pulling is disorienting
-            entity.setVelocity(pullVector.normalize().multiply(1.8).setY(0.4));
+			// Calculate vector from Entity -> Player
+			Vector pullVector = player.getLocation().toVector().subtract(entity.getLocation().toVector());
 
-            entity.getWorld().spawnParticle(Particle.PORTAL, entity.getLocation().add(0, 1, 0), 10, 0.2, 0.2, 0.2, 0.5);
-            
-            hitTarget = true;
-        }
+			// Normalize (make length 1) -> Multiply speed -> Add slight lift
+			// We use slightly less force than Push because pulling is disorienting
+			entity.setVelocity(pullVector.normalize().multiply(1.8).setY(0.4));
 
-        // Return true only if we actually pulled someone (so we don't waste energy on air)
-        return hitTarget;
-    }
+			entity.getWorld().spawnParticle(Particle.PORTAL, entity.getLocation().add(0, 1, 0), 10, 0.2, 0.2, 0.2, 0.5);
+
+			hitTarget = true;
+		}
+
+		// Return true only if we actually pulled someone (so we don't waste energy on
+		// air)
+		return hitTarget;
+	}
 }

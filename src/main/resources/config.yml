@@ -1,0 +1,20 @@
+energy:
+  max: 100.0
+  regen: 0.05 # Energy regeneration per tick. 20 ticks = 1 second. So, 0.05 per tick = 1 per second
+  symbols:
+    full: "|"
+    empty: "."
+  colors:
+    high: "aqua"
+    low: "red"
+
+powers:
+  jump:
+    cooldown: 0
+    energycost: 10
+  push:
+    cooldown: 0
+    energycost: 15
+  pull:
+    cooldown: 0
+    energycost: 15

@@ -1,0 +1,12 @@
+energy:
+  actionbar: "<energycolor>Power Energy: <gray>[<energybar>]"
+powers:
+  actionbar:
+    selected: "<gray>Selected: <aqua><power>"
+    energy: "<red>Not enough energy!"
+    cooldown: "<red><ability> is ready in <seconds>s"
+    none-unlocked: "<gray>No powers unlocked."
+  abilities:
+    jump: "Power Jump"
+    push: "Power Push"
+    pull: "Power Pull"
