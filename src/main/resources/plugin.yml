@@ -1,6 +1,6 @@
 name: GalaxyWars
-version: 1.0-SNAPSHOT
+version: 1.0.1-SNAPSHOT
 main: com.mrlucadev.galaxywars.GalaxyWars
-api-version: 1.21
+api-version: 1.21.11
 description: The ultimate space combat plugin.
 author: MrLucaDev
