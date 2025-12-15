@@ -1,7 +1,7 @@
 # GalaxyWars 🌌
-**The Ultimate Kinetic Combat & Physics Engine for Minecraft (Paper 1.21.11)**
+**The Ultimate Kinetic Combat & Physics Engine for Minecraft (Paper 1.19+)**
 
-![License](https://img.shields.io/badge/License-GPLv3-blue.svg) ![Platform](https://img.shields.io/badge/Platform-PaperMC%201.21.11-green.svg) ![Version](https://img.shields.io/badge/Version-1.0.0-orange.svg)
+![License](https://img.shields.io/badge/License-GPLv3-blue.svg) ![Platform](https://img.shields.io/badge/Platform-PaperMC%201.19+-green.svg) ![Version](https://img.shields.io/badge/Version-1.0.1-orange.svg)
 
 **GalaxyWars** transforms Minecraft combat by introducing vector-based physics and telekinetic abilities. Move beyond simple sword swinging—launch enemies into the air, pull targets into striking range, and leap across the map with fluid, responsive controls.
 
