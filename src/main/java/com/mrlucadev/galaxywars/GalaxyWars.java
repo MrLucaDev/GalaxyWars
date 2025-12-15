@@ -43,7 +43,7 @@ public class GalaxyWars extends JavaPlugin implements Listener {
 			PowerManager.unlockPower(p, "pull");
 		});
 
-		getComponentLogger().info(Component.text("GalaxyWars has engaged hyperdrive!", NamedTextColor.GOLD));
+		getComponentLogger().info(Component.text("GalaxyWars v1.0.1 has engaged hyperdrive!", NamedTextColor.GOLD));
 	}
 
 	// Add this to ensure players who join later get powers (temporary)

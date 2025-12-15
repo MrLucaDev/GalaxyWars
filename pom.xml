@@ -5,7 +5,7 @@
   
   <groupId>com.mrlucadev</groupId>
   <artifactId>galaxywars</artifactId>
-  <version>1.0.1-SNAPSHOT</version>
+  <version>1.0.1</version>
   <name>GalaxyWars</name>
   
   <properties>
